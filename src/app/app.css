@@ -1,0 +1,50 @@
+/* --- Estilos del Header --- */
+.nav-container {
+    @apply max-w-7xl mx-auto px-6 flex justify-between items-center;
+}
+
+.logo-text {
+    @apply text-2xl font-black text-gray-950 tracking-tighter;
+}
+
+.user-btn-black {
+    @apply flex items-center justify-center w-10 h-10 rounded-full bg-gray-950 hover:bg-gray-800 transition focus:ring-4 focus:ring-gray-300;
+}
+
+/* --- Estilos del Buscador --- */
+.search-box {
+    @apply max-w-5xl mx-auto bg-white p-6 rounded-3xl shadow-xl grid grid-cols-1 md:grid-cols-5 gap-4 items-end border border-gray-100;
+}
+
+.search-input-group {
+    @apply flex flex-col gap-1.5;
+}
+
+.search-label {
+    @apply text-[10px] font-bold text-indigo-600 uppercase ml-1.5 tracking-wider;
+}
+
+.search-field {
+    @apply bg-gray-100 border-none rounded-xl text-sm focus:ring-2 focus:ring-indigo-500 p-3;
+}
+
+/* --- Estilos de las Cards --- */
+.property-grid {
+    @apply grid grid-cols-1 md:grid-cols-3 gap-10;
+}
+
+.property-card {
+    @apply bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-2xl transition-all border border-gray-100 flex flex-col group;
+}
+
+.property-img {
+    @apply w-full h-full object-cover group-hover:scale-110 transition duration-700;
+}
+
+.price-tag {
+    @apply text-2xl font-black text-indigo-600;
+}
+
+.btn-primary {
+    @apply bg-indigo-600 text-white py-3.5 rounded-xl font-bold hover:bg-indigo-700 transition shadow-lg shadow-indigo-100 text-sm w-full;
+}
