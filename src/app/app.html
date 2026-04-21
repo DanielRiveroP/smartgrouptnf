@@ -18,10 +18,19 @@
       </button>
 
       <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow-2xl w-44 border border-gray-100 absolute top-full right-0 mt-2">
-          <ul class="py-2 text-sm text-gray-700">
-            <li><a href="#" class="block px-4 py-2 hover:bg-indigo-50">Iniciar sesión</a></li>
-            <li><a href="#" class="block px-4 py-2 hover:bg-indigo-50">Registrarse</a></li>
-          </ul>
+        <ul class="py-2 text-sm text-gray-700">
+          <li>
+            <a href="#" class="block px-4 py-2 hover:bg-indigo-50">Iniciar sesión</a>
+          </li>
+          <li>
+            <a href="#" 
+              data-modal-target="auth-modal" 
+              data-modal-toggle="auth-modal" 
+              class="block px-4 py-2 hover:bg-indigo-50 cursor-pointer font-bold text-indigo-600">
+              Registrarse
+            </a>
+          </li>
+        </ul>
       </div>
     </div>
   </div>

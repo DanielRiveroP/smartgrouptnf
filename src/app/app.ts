@@ -1,7 +1,7 @@
 import { Component, AfterViewInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { initFlowbite } from 'flowbite';
-import { CommonModule } from '@angular/common'; // Importante para usar *ngFor
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -12,10 +12,9 @@ import { CommonModule } from '@angular/common'; // Importante para usar *ngFor
 })
 export class AppComponent implements AfterViewInit {
   
-  
-  companyName = 'Olax';
+  companyName = 'Olax'; // [cite: 1]
 
-  
+  // Datos de propiedades siguiendo el diseño del PDF [cite: 30, 31, 32, 33, 34, 35, 36, 37, 38]
   viviendas = [
     {
       nombre: 'Villa Horizon Adeje',
@@ -40,8 +39,9 @@ export class AppComponent implements AfterViewInit {
   ];
 
   ngAfterViewInit(): void {
+    // Subimos a 500ms para asegurar que el dropdown y el modal se enganchen bien
     setTimeout(() => {
       initFlowbite();
-    }, 1);
+    }, 500);
   }
 }
