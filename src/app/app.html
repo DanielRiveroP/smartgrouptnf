@@ -2,17 +2,18 @@
   <div class="nav-container">
     <a href="#" class="flex items-center gap-2">
       <span class="w-3 h-6 bg-indigo-600 rounded-sm"></span>
-      <h1 class="logo-text">SmartGroup<span class="text-indigo-600">Tenerife</span></h1>
+      <h1 class="logo-text">Olax</h1>
     </a>
 
     <div class="flex items-center gap-4 relative">
-      <button class="hidden md:block bg-gray-100 text-gray-800 px-5 py-2 rounded-full text-sm font-semibold">
-        Panel Propietario
-      </button>
+      <select class="text-xs border-none bg-gray-100 rounded-lg focus:ring-indigo-500 cursor-pointer">
+        <option>ES</option><option>EN</option><option>FR</option>
+        <option>DE</option><option>IT</option><option>PT</option><option>RU</option>
+      </select>
 
       <button id="userMenuButton" data-dropdown-toggle="userDropdown" class="user-btn-black" type="button">
         <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
-          <path fill-rule="evenodd" d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z" clip-rule="evenodd"/>
+          <path d="M12 4a4 4 0 1 0 0 8 4 4 0 0 0 0-8Zm-2 9a4 4 0 0 0-4 4v1a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-1a4 4 0 0 0-4-4h-4Z"/>
         </svg>
       </button>
 
@@ -26,11 +27,11 @@
   </div>
 </header>
 
-<section class="bg-gray-50 py-16 px-4">
+<section class="bg-indigo-50 py-16 px-4">
   <div class="search-box">
     <div class="search-input-group">
-      <span class="search-label">Destino</span>
-      <select class="search-field"><option>Santa Cruz</option><option>Adeje</option></select>
+      <span class="search-label">Ciudad / Propiedad</span>
+      <input type="text" class="search-field" placeholder="¿A dónde vas?">
     </div>
     <div class="search-input-group">
       <span class="search-label">Entrada</span>
@@ -42,33 +43,68 @@
     </div>
     <div class="search-input-group">
       <span class="search-label">Huéspedes</span>
-      <input type="number" class="search-field" placeholder="1">
+      <input type="number" class="search-field" placeholder="1" min="1">
     </div>
-    <button class="btn-primary">Buscar Vivienda</button>
+    <button class="btn-primary">Buscar</button>
   </div>
 </section>
 
 <main class="max-w-7xl mx-auto py-16 px-6">
-  <h2 class="text-3xl font-extrabold mb-12">Propiedades Destacadas</h2>
+  <h2 class="text-3xl font-extrabold mb-12 text-gray-900">Propiedades en Olax</h2>
   
   <div class="property-grid">
-    <div *ngFor="let casa of viviendas" class="property-card">
+    <div *ngFor="let casa of viviendas" class="property-card group">
       <div class="relative overflow-hidden h-60">
         <img [src]="casa.imagen" class="property-img">
-        <span class="absolute bottom-4 left-4 bg-white/90 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase">
+        <span class="absolute bottom-4 left-4 bg-white/90 px-4 py-1.5 rounded-full text-[11px] font-bold uppercase tracking-wider">
           {{ casa.ciudad }}
         </span>
       </div>
       <div class="p-7 flex-grow flex flex-col justify-between">
         <div>
-          <h3 class="font-bold text-xl mb-1.5">{{ casa.nombre }}</h3>
-          <p class="text-gray-600 text-sm mb-6">{{ casa.habitaciones }} Habitaciones · Gestión Smart</p>
+          <h3 class="font-bold text-xl mb-2 text-gray-900">{{ casa.nombre }}</h3>
+          <p class="text-gray-500 text-[11px] mb-6 uppercase tracking-widest font-bold">
+            {{ casa.huespedes }} Huéspedes · {{ casa.habitaciones }} Hab · {{ casa.camas }} Camas · {{ casa.banos }} Baños
+          </p>
         </div>
         <div class="flex justify-between items-center border-t pt-5">
           <p class="price-tag">{{ casa.precio }}€ <span class="text-xs font-normal text-gray-400">/ noche</span></p>
-          <button class="text-sm font-bold hover:text-indigo-600">Ver más</button>
+          <button class="text-sm font-bold text-indigo-600 hover:underline">Ver detalles</button>
         </div>
       </div>
     </div>
   </div>
 </main>
+
+<div id="auth-modal" tabindex="-1" aria-hidden="true" class="fixed top-0 left-0 right-0 z-[60] hidden w-full p-4 overflow-x-hidden overflow-y-auto md:inset-0 h-[calc(100%-1rem)] max-h-full">
+    <div class="relative w-full max-w-md max-h-full">
+        <div class="relative bg-white rounded-3xl shadow-2xl border border-gray-100 overflow-hidden">
+            <div class="flex border-b">
+                <button class="flex-1 py-4 text-sm font-bold border-b-2 border-indigo-600 text-indigo-600">Registrarse</button>
+                <button class="flex-1 py-4 text-sm font-bold text-gray-400 hover:text-gray-600">Iniciar Sesión</button>
+            </div>
+            
+            <div class="p-8">
+                <form class="space-y-4">
+                    <div>
+                        <label class="search-label">Nombre Completo</label>
+                        <input type="text" class="search-field w-full" placeholder="Ej. Juan Pérez">
+                    </div>
+                    <div>
+                        <label class="search-label">Email</label>
+                        <input type="email" class="search-field w-full" placeholder="tu@email.com">
+                    </div>
+                    <div>
+                        <label class="search-label">Contraseña</label>
+                        <input type="password" class="search-field w-full" placeholder="••••••••">
+                    </div>
+                    <div class="flex items-center gap-2 py-2">
+                        <input type="checkbox" class="rounded text-indigo-600 focus:ring-indigo-500 border-gray-300">
+                        <span class="text-[11px] text-gray-500">Acepto los <a href="#" class="underline">Términos y condiciones</a> [cite: 97]</span>
+                    </div>
+                    <button type="submit" class="btn-primary w-full shadow-lg shadow-indigo-100">Crear cuenta</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

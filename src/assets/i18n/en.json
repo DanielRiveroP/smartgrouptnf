@@ -1,0 +1,16 @@
+{
+  "APP_NAME": "Olax",
+  "SEARCH": {
+    "DESTINATION": "City / Property",
+    "CHECK_IN": "Check-in",
+    "CHECK_OUT": "Check-out",
+    "GUESTS": "Guests",
+    "BUTTON": "Search"
+  },
+  "PROPERTY": {
+    "ROOMS": "Rooms",
+    "BEDS": "Beds",
+    "BATHS": "Baths",
+    "NIGHT": "night"
+  }
+}
